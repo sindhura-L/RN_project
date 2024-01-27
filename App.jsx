@@ -1,27 +1,23 @@
+// App.js
 
-import {Text, View, TouchableOpacity} from 'react-native';
-import  {useState} from 'react';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import ListViewScreenC from './components/ListViewScreenC';
+import DetailViewScreenC from './components/DetailViewScreenC';
+import AddRecordScreenC from './components/AddRecordScreenC';
 
-import UserProfileComponentF from './components/UserProfileComponentF';
 
-const App = () => {
-  const [parentFirstName, setParentFirstName] = useState('');
+const Stack = createStackNavigator();
+
+export default function App() {
   return (
-    <View style ={{marginTop: 20}}>
-      <UserProfileComponentF
-
-       firstName={"Sindhu"}
-      lastName={'Krishna'}
-      cell={'12345676'}
-      email={'ylsindhura@gmail.com'}
-      city={'Hyderabad'}
-      country={'India'}
-      />
-
-
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="ListView">
+        <Stack.Screen name="ListView" component={ListViewScreenC} />
+        <Stack.Screen name="DetailView" component={DetailViewScreenC} />
+        <Stack.Screen name="AddRecord" component={AddRecordScreenC} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-};
-
-export default App;
-
+}
