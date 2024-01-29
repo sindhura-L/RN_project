@@ -3,7 +3,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-class DetailViewScreen extends React.Component {
+class DetailViewScreenC extends React.Component {
   render() {
     const { item } = this.props.route.params;
     return (
@@ -16,4 +16,4 @@ class DetailViewScreen extends React.Component {
   }
 }
 
-export default DetailViewScreen;
+export default DetailViewScreenC;

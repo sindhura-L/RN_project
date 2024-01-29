@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Button, FlatList } from 'react-native';
 
-class ListViewScreen extends React.Component {
+class ListViewScreenC extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -39,4 +39,4 @@ class ListViewScreen extends React.Component {
   }
 }
 
-export default ListViewScreen;
+export default ListViewScreenC;

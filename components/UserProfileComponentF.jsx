@@ -87,6 +87,7 @@ return (
  ); 
 };
 
+
 export  default UserProfileComponentF;
 const styles = StyleSheet.create({
     textinput: {margin: 10, backgroundColor: 'pink'}
