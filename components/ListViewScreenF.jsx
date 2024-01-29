@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, Button, FlatList } from 'react-native';
+import { View, Text, Button, FlatList, SafeAreaView} from 'react-native';
+import AddCarModal from './AddCarModal';
 
 
 const ListViewScreenF = ({navigation }) => {
@@ -14,6 +15,8 @@ const ListViewScreenF = ({navigation }) => {
     path: '/Users/sindhurayeruva/Desktop/Images/benz.jpg' }
   ]);
 
+  const [isModalShow, setModalShow] = useState(false);
+
   // /Users/sindhurayeruva/Desktop/Images/Tesla.jpg
   
   const renderItem = ({ item }) => (
@@ -23,14 +26,18 @@ const ListViewScreenF = ({navigation }) => {
         title="View Details"
         onPress={() => navigation.navigate('DetailView', { item })}
       />
+     
     </View>
+
   );
 
   const addRecord = (newRecord) => {
+    setModalShow(false);
     setData([...data, newRecord]);
   };
   
   return (
+    <SafeAreaView style={{flex: 1}}>
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <FlatList
         data={data}
@@ -39,10 +46,16 @@ const ListViewScreenF = ({navigation }) => {
       />
       <Button
         title="Add Record"
-        onPress={() => navigation.navigate('AddRecord', { onRecordAdded: addRecord })}
+        onPress={() => setModalShow(true)}
   
       />
+      <AddCarModal
+        isModalShow={isModalShow}
+        onRecordAdded={addRecord}/>
+   
     </View>
+   
+    </SafeAreaView>
   );
 };
 

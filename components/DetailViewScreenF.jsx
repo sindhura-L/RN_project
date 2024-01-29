@@ -4,16 +4,15 @@ import { View, Text ,Image ,StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'flex-start',
-        justifyContent: 'top',
+        justifyContent: 'center',
         alignItems: 'center', 
-       paddingTop: 280,
     },
     image: {
       width: '100%',
-      height: '100%',
-      flex: 1, 
-      alignItems: 'center', 
+      height: 200,
+      alignItems: 'center',
+      resizeMode:'contain'
+
       
     }
     
