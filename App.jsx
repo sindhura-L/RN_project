@@ -1,35 +1,26 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import ListViewScreenF from './components/ListViewScreenF';
-import DetailViewScreenF from './components/DetailViewScreenF';
-import AddRecordScreenF from './components/AddRecordScreenF';
+import {AuthProvider}    from './components/AuthContext';
+import LoginScreen       from './components/LoginScreen';
+//import DashboardScreen   from './components/DashboardScreen';
+import DashboardView1 from './components/DashboardView1';
 
 const Stack = createStackNavigator();
 
-export default function App() {
-
-
+const App = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="ListView">
-        <Stack.Screen name="ListView" component={ListViewScreenF} />
-        <Stack.Screen name="DetailView" component={DetailViewScreenF} />
-        <Stack.Screen name="AddRecord" component={AddRecordScreenF} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <AuthProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Login" component={LoginScreen} />
+         {/* // <Stack.Screen name="Dashboard" component={DashboardScreen} /> */}
+         <Stack.Screen name="Dashboard" component={DashboardView1} />
+
+        </Stack.Navigator>
+      </NavigationContainer>
+    </AuthProvider>
   );
-}
+};
 
-
-// export default function App() {
-//   return (
-//     <NavigationContainer>
-//       <Stack.Navigator initialRouteName="ListView">
-//         <Stack.Screen name="ListView" component={ListViewScreenC} />
-//         <Stack.Screen name="DetailView" component={DetailViewScreenC} />
-//         <Stack.Screen name="AddRecord" component={AddRecordScreenC} />
-//       </Stack.Navigator>
-//     </NavigationContainer>
-//   );
-// }
+export default App;
